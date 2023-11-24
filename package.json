@@ -1,0 +1,28 @@
+  {
+    "name": "tomto",
+    "version": "1.0.0",
+    "description": "Mon projet Node.js",
+    "main": "app.js",
+    "scripts": {
+      "test": "jest --detectOpenHandles"
+    },
+    "author": "Tom Schmidt",
+    "license": "ISC",
+    "dependencies": {
+      "etag": "^1.8.1",
+      "express": "^4.18.2",
+      "jsonwebtoken": "^9.0.2",
+      "mongo": "^0.1.0",
+      "mongodb": "^6.1.0",
+      "swagger-jsdoc": "^6.2.8",
+      "swagger-ui-express": "^5.0.0",
+      "ws": "^8.14.2"
+    },
+    "keywords": [],
+    "devDependencies": {
+      "jest": "^29.7.0",
+      "mongodb-memory-server": "^9.0.1",
+      "mongoose": "^8.0.0",
+      "supertest": "^6.3.3"
+    }
+  }
