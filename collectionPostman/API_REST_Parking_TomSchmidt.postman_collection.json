@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "d69e78b4-d59d-45a0-9a4b-e64bf9aa4592",
+		"name": "API_REST_Parking_TomSchmidt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30491271"
+	},
+	"item": [
+		{
+			"name": "Génération d'un Bearer Token d'1h",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 1\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer tous les parkings et les réservations liées",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJraW5nIjpudWxsLCJpYXQiOjE3MDA4MTg1MzJ9.5pKUTuZx2onfLv21t0v7DSfqdx9vb14MKT8GpPL4M7Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "If-None-Match",
+						"value": "72f-j+dRwMpBfop4G5m2SIkgicHkyIQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/parkings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer un seul parking",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJraW5nIjpudWxsLCJpYXQiOjE3MDA4MTg1MzJ9.5pKUTuZx2onfLv21t0v7DSfqdx9vb14MKT8GpPL4M7Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "If-None-Match",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/parkings/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkings",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer toutes les réservations d'un Parking",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJraW5nIjpudWxsLCJpYXQiOjE3MDA4MTg1MzJ9.5pKUTuZx2onfLv21t0v7DSfqdx9vb14MKT8GpPL4M7Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "If-None-Match",
+						"value": "2c9-",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/parkings/:id/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkings",
+						":id",
+						"reservations"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupérer une seule réservation précise et avoir son parking correspondant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJraW5nIjpudWxsLCJpYXQiOjE3MDA4MTg1MzJ9.5pKUTuZx2onfLv21t0v7DSfqdx9vb14MKT8GpPL4M7Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/parkings/reservations/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkings",
+						"reservations",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajouter un parking",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJraW5nIjpudWxsLCJpYXQiOjE3MDA4MTg1MzJ9.5pKUTuZx2onfLv21t0v7DSfqdx9vb14MKT8GpPL4M7Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 9,\r\n        \"name\":\"Parking TEST Routes\",\r\n        \"type\": \"Metro B\",\r\n        \"city\": \"OUI\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/parkings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifier un parking existant",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJraW5nIjpudWxsLCJpYXQiOjE3MDA4MTg1MzJ9.5pKUTuZx2onfLv21t0v7DSfqdx9vb14MKT8GpPL4M7Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\":\"Parking TEST Routes\",\r\n        \"type\": \"PUT Routes\",\r\n        \"city\": \"NON\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/parkings/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkings",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Supprimer un parking",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJraW5nIjpudWxsLCJpYXQiOjE3MDA4MTg1MzJ9.5pKUTuZx2onfLv21t0v7DSfqdx9vb14MKT8GpPL4M7Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/parkings/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkings",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
